@@ -16,28 +16,20 @@ namespace SwordDamage_Console_Part_1
             while (true)
             {
                 Console.Write("0 for no magic/flaming, 1 for magic, 2 for flaming, 3 for both, anything else to quit: ");
-                ConsoleKeyInfo keyInfo = Console.ReadKey(false);
+                char key = Console.ReadKey().KeyChar;
 
-                switch (keyInfo.KeyChar)
-                {
-                    case '0':
-                    case '1': // magic
-                    case '2': // flaming
-                    case '3': // magic + flaming
-                        CalculateSwordAttackPower(swordDamage, random, keyInfo.KeyChar);
-                        break;
-                    default:
-                        return;
-                }
+                if (key != '0' && key != '1' && key != '2' && key != '3') return;
+
+                CalculateSwordAttackPower(swordDamage, random, key);
             }
         }
 
-        static void CalculateSwordAttackPower(SwordDamage swordDamage, Random random, char input)
+        static void CalculateSwordAttackPower(SwordDamage swordDamage, Random random, char key)
         {
             int Roll = RollThreeDice(random);
             swordDamage.SetRoll(Roll);
-            swordDamage.SetMagic(input == '1' || input == '3');
-            swordDamage.SetFlaming(input == '2' || input == '3');
+            swordDamage.SetMagic(key == '1' || key == '3');
+            swordDamage.SetFlaming(key == '2' || key == '3');
             Console.WriteLine($"\n{swordDamage.ToString()}\n");
         }
 
