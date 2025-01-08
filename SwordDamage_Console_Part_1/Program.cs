@@ -16,7 +16,7 @@ namespace SwordDamage_Console_Part_1
             while (true)
             {
                 Console.Write("0 for no magic/flaming, 1 for magic, 2 for flaming, 3 for both, anything else to quit: ");
-                ConsoleKeyInfo keyInfo = Console.ReadKey(false);
+                ConsoleKeyInfo keyInfo = Console.ReadKey(false);                
 
                 switch (keyInfo.KeyChar)
                 {
@@ -44,7 +44,7 @@ namespace SwordDamage_Console_Part_1
             swordDamage.SetRoll(Roll);
             swordDamage.SetMagic(magic);
             swordDamage.SetFlaming(flaming);
-            Console.WriteLine($"{swordDamage.ToString()}\n");
+            Console.WriteLine($"\n{swordDamage.ToString()}\n");
         }
 
         static int RollThreeDice(Random random)
