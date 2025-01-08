@@ -36,10 +36,21 @@ namespace SwordDamage_Console_Part_1
 
         public void SetFlaming(bool isFlaming)
         {
+            CalculateDamage();
             if (isFlaming)
             {
                 Damage += FLAME_DAMAGE;
             }
+        }
+
+        public void SetRoll(int roll)
+        {
+            this.Roll = roll;
+        }
+
+        public override string ToString()
+        {
+            return $"Rolled {Roll} for {Damage} HP";
         }
     }
 }
